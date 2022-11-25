@@ -1,0 +1,277 @@
+:root {
+  --color-primary-strong-cyan: hsl(172, 67%, 45%);
+  --color-neutral-extra-dark-cyan: hsl(183, 100%, 15%);
+  --color-neutral-dark-gray-cyan: hsl(186, 14%, 43%);
+  --color-neutral-gray-cyan: hsl(184, 14%, 56%);
+  --color-neutral-gray-cyan-alt: hsl(184, 14%, 65%);
+  --color-neutral-light-gray-cyan: hsl(185, 41%, 84%);
+  --color-neutral-extra-light-gray-cyan: hsl(189, 41%, 97%);
+  --color-neutral-white: hsl(0, 0%, 100%);
+  --color-input-focus: hsl(173, 61%, 77%);
+  --color-input-invalid: hsl(15, 35%, 57%);
+  --font-family: 'Space Mono', monospace; /* 700 */
+}
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font: 700 1rem var(--font-family);
+  background-color: var(--color-neutral-light-gray-cyan);
+  color: var(--color-neutral-extra-dark-cyan);
+  min-height: 100vh;
+  margin: 0;
+}
+
+main {
+  width: 100%;
+  max-width: 58rem;
+}
+
+.logo {
+  padding: 2.3em 0;
+}
+
+.form-bill {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-neutral-white);
+  border-radius: 22px;
+  padding: 1.6em;
+  gap: 1.8em;
+  box-shadow: 0 20px 40px hsla(183, 100%, 15%, 0.15);
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8em;
+}
+
+label,
+fieldset {
+  color: var(--color-neutral-dark-gray-cyan);
+}
+
+.label-regular,
+legend {
+  display: inline-block;
+  padding-bottom: 0.3em;
+}
+
+button,
+input {
+  font: inherit;
+  font-size: 1.5em;
+  border-radius: 5px;
+  border: none;
+  padding: 0.2em 0.6em;
+  width: 100%;
+}
+
+button {
+  text-transform: uppercase;
+}
+
+button[type=reset] {
+  background-color: var(--color-primary-strong-cyan);
+  color: var(--color-neutral-extra-dark-cyan);
+  font-size: 1.2em;
+  padding: 0.4em 0.6em;
+  cursor: pointer;
+}
+
+button[type=reset]:disabled {
+  background-color: var(--color-neutral-gray-cyan);
+  color: var(--color-neutral-extra-dark-cyan);
+  cursor: not-allowed;
+}
+
+input {
+  background-color: var(--color-neutral-extra-light-gray-cyan);
+  color: var(--color-neutral-extra-dark-cyan);
+  text-align: right;
+}
+
+input:focus {
+  outline: 3px solid var(--color-primary-strong-cyan);
+}
+
+input:invalid {
+  outline: 3px solid var(--color-input-invalid);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+.label-button {
+  display: inline-block;
+  width: 100%;
+  background-color: var(--color-neutral-extra-dark-cyan);
+  color: var(--color-neutral-white);
+  text-align: center;
+  border-radius: 5px;
+  padding: 0.2em;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+button:hover,
+.label-button:hover,
+input[type=radio]:checked + .label-button {
+  background-color: var(--color-input-focus);
+  color: var(--color-neutral-extra-dark-cyan);
+}
+
+input[type=radio] {
+  appearance: none;
+}
+
+.input-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.invalid-message {
+  display: inline-block;
+  margin: 0;
+  color: var(--color-input-invalid);
+}
+
+.hidden {
+  display: none;
+}
+
+.results-container {
+  background-color: var(--color-neutral-extra-dark-cyan);
+  color: var(--color-neutral-white);
+  border-radius: 14px;
+  padding: 1.6em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#bill-amount {
+  background:
+    var(--color-neutral-extra-light-gray-cyan)
+    url(../images/icon-dollar.svg) left 0.6em center / 0.5em no-repeat;
+  /* Used text-indent instead of padding-left because it was affecting form spacing */
+  text-indent: 1em;
+}
+
+#bill-total-people {
+  background:
+    var(--color-neutral-extra-light-gray-cyan)
+    url(../images/icon-person.svg) left 0.6em center / 0.5em no-repeat;
+  text-indent: 1em;
+}
+
+fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tip-amounts {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1em;
+}
+
+table {
+  width: 100%;
+}
+
+th,
+td {
+  padding-bottom: 0.8rem; /* Use rem since were applying to different font sizes */
+  vertical-align: middle;
+}
+
+th {
+  text-align: left;
+  width: 50%;
+}
+
+.per {
+  display: block;
+  font-size: 0.8em;
+  color: var(--color-neutral-gray-cyan-alt);
+}
+
+td {
+  font-size: 1.8em;
+  color: var(--color-primary-strong-cyan);
+  text-align: right;
+  width: 50%;
+}
+
+/* Screen readers */
+
+.sr-only {
+  border: 0 !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+  -webkit-clip-path: inset(50%) !important;
+  clip-path: inset(50%) !important;
+  height: 1px !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+  white-space: nowrap !important;
+}
+
+/* Responsive media queries */
+
+@media (min-width: 576px) {
+  .logo {
+    padding: 5em 0;
+  }
+
+  .form-bill {
+    flex-direction: row;
+    gap: 3em;
+    padding: 3em;
+  }
+
+  .form-bill > div {
+    flex: 1 1 50%;
+  }
+
+  .inputs {
+    gap: 2.5em;
+  }
+
+  .tip-amounts {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .results-container {
+    padding: 3em;
+  }
+
+  td {
+    font-size: 3em;
+  }
+}
