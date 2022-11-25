@@ -22,6 +22,7 @@ html {
 body {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   font: 700 1rem var(--font-family);
   background-color: var(--color-neutral-light-gray-cyan);
@@ -246,7 +247,7 @@ td {
 
 @media (min-width: 576px) {
   .logo {
-    padding: 5em 0;
+    padding: 1em 0 5em 0;
   }
 
   .form-bill {
